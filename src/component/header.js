@@ -7,13 +7,15 @@ const Header=()=>{
   const [notes,setNotes]=useState([]);
   const [title,setTitle]=useState([])
   const [content,setContent]=useState([])
+  
     return(
       <div>
         <div>
- <Navbar bg="dark" variant="dark">
-    <Navbar.Brand href="#home">NOTE BOOK</Navbar.Brand>
+ <Navbar style={{backgroundColor:"rgb(4, 4, 61)"}} variant="dark">
+    <Navbar.Brand href="#home" style={{fontSize:"25px"}}>
+      NOTE BOOK</Navbar.Brand>
     
-      <div >
+      <div style={{marginLeft:"auto", display:"block"}}>
       <Button variant="outline-info" 
       onClick={()=>setOpenPopup(true)} >
     Create Notes</Button>
@@ -31,7 +33,8 @@ const Header=()=>{
   <div>
     <Notes
     setNotes={setNotes}
-    notes={notes}/>
+    notes={notes}
+    />
   </div>
   </div>
         )  

@@ -11,12 +11,12 @@ import { CardHeader, Divider, Grid } from '@material-ui/core';
 const useStyles = makeStyles({
     
     Notes: {
-      maxWidth: 345,
-    
+      maxWidth: 350,
+   backgroundColor:"rgb(44, 236, 188)"
     },
     root: {
         flexGrow: 1,
-        margin:'5px'
+        margin:'15px'
       },
   });
 
@@ -29,7 +29,7 @@ const Notes=({notes,setNotes})=>{
     
     {notes.map((note)=>(
         <Grid item xs={12} sm={6} md={3}>
-    <Card className={classes.Notes} style={{backgroundColor:"palegreen"}}>
+    <Card key={note.id} className={classes.Notes} id="note-card"   >
         
       <CardActionArea>
           <CardHeader title={note.name}>

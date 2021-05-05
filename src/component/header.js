@@ -11,13 +11,12 @@ const Header=()=>{
       <div>
         <div>
  <Navbar bg="dark" variant="dark">
-    <Navbar.Brand href="#home">Navbar</Navbar.Brand>
-    
+    <Navbar.Brand href="#home">NOTE BOOK</Navbar.Brand>
     
       <div >
-      <Button variant="outline-info"
-      onClick={()=>setOpenPopup(true)} 
-    >Search</Button>
+      <Button variant="outline-info" 
+      onClick={()=>setOpenPopup(true)} >
+    Create Notes</Button>
    </div>
   </Navbar>
   </div>

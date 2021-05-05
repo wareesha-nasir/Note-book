@@ -2,14 +2,15 @@ import {React} from 'react';
 import {v4 as uuidv4} from 'uuid';
 import {Dialog,DialogTitle,DialogContent, makeStyles,Button,TextField} from '@material-ui/core';
 import { FormLabel } from 'react-bootstrap';
-
+import './popup.css'
 
 const useStyles=makeStyles(theme=>({
     dialogWrapper:{
     padding:theme.spacing(5),
       width: '70%',
-      
+     height:'70%' 
 },
+
 }))
 
 export default function Popup(props){
@@ -29,19 +30,23 @@ setContent("")
         <Dialog open={openPopup} fullWidth maxWidth="xs" classes={{paper:classes.dialogWrapper}} >
             <DialogTitle>
                 <div  >
-                Add new list
+                Create New Note
                 <Button onClick={()=>setOpenPopup(false)} style={{float:"right"}}>X</Button></div>
                 </DialogTitle>
             <DialogContent dividers>
             <form onSubmit={(e)=>{handleSubmit(e)}}>
-            <FormLabel><strong>Title</strong></FormLabel><br/>
-            <TextField id="outlined-basic" label="heading" variant="outlined" onChange={(e)=>{
+            <FormLabel className="label"><strong>Title</strong></FormLabel><br/>
+            <TextField id="outlined-basic" label="heading" variant="outlined" className="text-field"
+            onChange={(e)=>{
                 setTitle(e.target.value)}} value={title}
             /><br/>
-                <FormLabel>Notes</FormLabel><br/>
-            <TextField id="outlined-basic" label="add new note" variant="outlined" 
-            onChange={(e)=>{setContent(e.target.value)}} value={content}/>
-             <Button type="submit">Add Note</Button>     
+                <FormLabel className="label"><strong>Notes</strong></FormLabel><br/>
+            <TextField id="outlined-basic" label="add new note" variant="outlined" className="text-field"
+            onChange={(e)=>{setContent(e.target.value)}} value={content}/><br/>
+             
+             <Button type="submit" color="primary" className="add-btn" variant="outlined">
+                 Add Note
+                 </Button>     
                                </form>
       
        

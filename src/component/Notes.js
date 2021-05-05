@@ -6,21 +6,30 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 
 import Button from '@material-ui/core/Button';
-import { CardHeader, Divider } from '@material-ui/core';
+import { CardHeader, Divider, Grid } from '@material-ui/core';
+
 const useStyles = makeStyles({
-    root: {
+    
+    Notes: {
       maxWidth: 345,
+    
     },
-  
+    root: {
+        flexGrow: 1,
+        margin:'5px'
+      },
   });
 
 const Notes=({notes,setNotes})=>{
   const classes = useStyles();
 
   return (
-<div>
+<div className={classes.root}>
+    <Grid container spacing={3}>
+    
     {notes.map((note)=>(
-    <Card className={classes.root}>
+        <Grid item xs={12} sm={6} md={3}>
+    <Card className={classes.Notes} style={{backgroundColor:"palegreen"}}>
         
       <CardActionArea>
           <CardHeader title={note.name}>
@@ -38,8 +47,12 @@ const Notes=({notes,setNotes})=>{
       </CardActions>
         
     </Card>
-    ))  
+     
+    </Grid>
+    ))
 }
+
+</Grid>
 </div>
   );
 }

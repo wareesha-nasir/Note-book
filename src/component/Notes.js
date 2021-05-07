@@ -4,24 +4,30 @@ import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
-
+import '../App.css'
 import Button from '@material-ui/core/Button';
 import { CardHeader, Divider, Grid } from '@material-ui/core';
 
 const useStyles = makeStyles({
     
     Notes: {
-      maxWidth: 350,
-   backgroundColor:"rgb(44, 236, 188)"
+      maxWidth: '18em',
+   backgroundColor:"rgb(135, 243, 234)"
     },
     root: {
         flexGrow: 1,
         margin:'15px'
       },
+  
   });
 
 const Notes=({notes,setNotes})=>{
   const classes = useStyles();
+
+const deleteNote=(id)=>{
+  const newNote=[...notes].filter((note)=>note.id!==id)
+  setNotes(newNote)
+}
 
   return (
 <div className={classes.root}>
@@ -41,7 +47,8 @@ const Notes=({notes,setNotes})=>{
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button size="small" color="secondary" variant="outlined">
+        <Button size="small" color="secondary" variant="outlined" className="delete-btn"
+        onClick={()=>deleteNote(note.id)}>
           Delete
         </Button>
       </CardActions>

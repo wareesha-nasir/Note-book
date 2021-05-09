@@ -20,7 +20,9 @@ const classes=useStyles;
 
   const handleSubmit=(e)=>{
 e.preventDefault()
-setNotes([...notes,{id:uuidv4(),name:title,note1:content}])
+const date=new Date()
+var currentdate=date.toLocaleDateString()
+setNotes([...notes,{id:uuidv4(),name:title, note1:content,date:currentdate}])
 setOpenPopup(false)
 setTitle("")
 setContent("")

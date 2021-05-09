@@ -12,13 +12,16 @@ const useStyles = makeStyles({
     
     Notes: {
       maxWidth: '18em',
-   backgroundColor:"rgb(135, 243, 234)"
+   backgroundColor:"rgb(157, 241, 223)"
     },
     root: {
         flexGrow: 1,
         margin:'15px'
       },
-  
+  date:{
+    color:'purple',
+   
+  }
   });
 
 const Notes=({notes,setNotes})=>{
@@ -47,10 +50,12 @@ const deleteNote=(id)=>{
         </CardContent>
       </CardActionArea>
       <CardActions>
+        <span className={classes.date}>{note.date}</span>
+        <div style={{display:"block", marginLeft:"auto"}}>
         <Button size="small" color="secondary" variant="outlined" className="delete-btn"
-        onClick={()=>deleteNote(note.id)}>
+        onClick={()=>deleteNote(note.id)} >
           Delete
-        </Button>
+        </Button></div>
       </CardActions>
         
     </Card>
